@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
     "test": "jest",
-    "prepare": "husky install",
-    "scriptname": "husky install"
+    "test:watch": "npm test -- --watch",
+    "test:staged": "npm test -- --findRelatedTests",
+    "test:ci": "npm test -- --coverage"
   },
   "author": "Samuel Freitas <samuelfreitas.ao@gmail.com>",
   "license": "MIT",
@@ -16,6 +20,7 @@
     "eslint": "^8.23.0",
     "eslint-config-standard-with-typescript": "^22.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.1",
     "eslint-plugin-standard": "^5.0.0",
