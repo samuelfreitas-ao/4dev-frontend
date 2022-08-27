@@ -6,22 +6,40 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/public/js'),
     publicPath: '/public/js',
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx', '.js', '.scss'],
     alias: {
       '@': path.join(__dirname, 'src')
     }
   },
+  module: {
+    rules: [{
+      test: /\.ts(x?)$/,
+      loader: 'ts-loader'
+    },
+    {
+      test: /\.scss$/,
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader',
+        options: {
+          modules: true
+        }
+      }]
+    }
+    ]
+  },
   sevServer: {
     contentBase: './public',
     rightToDisk: true,
-    historyApiFallback: true,
+    historyApiFallback: true
   },
-  externals: {//Para não incluir dentro do bundle.js
-    react: "React",
-    'react-dom': "ReactDOM",
+  externals: { // Para não incluir dentro do bundle.js
+    react: 'React',
+    'react-dom': 'ReactDOM'
   },
   plugins: [
     new CleanWebpackPlugin()
