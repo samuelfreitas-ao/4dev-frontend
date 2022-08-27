@@ -32,10 +32,13 @@ module.exports = {
     }
     ]
   },
-  sevServer: {
-    contentBase: './public',
-    rightToDisk: true,
-    historyApiFallback: true
+  devServer: {
+    devMiddleware: {
+      writeToDisk: true
+    },
+    static: {
+      directory: './public'
+    }
   },
   externals: { // Para não incluir dentro do bundle.js
     react: 'React',
