@@ -14,6 +14,7 @@
   "author": "Samuel Freitas <samuelfreitas.ao@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/faker": "5",
     "@types/jest": "^28.1.8",
     "@types/node": "^18.7.13",
     "@typescript-eslint/eslint-plugin": "^5.35.1",
@@ -24,6 +25,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.1",
     "eslint-plugin-standard": "^5.0.0",
+    "faker": "5",
     "git-commit-msg-linter": "^4.1.3",
     "husky": "^8.0.1",
     "jest": "28",
