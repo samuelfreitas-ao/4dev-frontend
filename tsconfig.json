@@ -4,6 +4,10 @@
     "esModuleInterop": true,
     "module": "commonjs",  
     "jsx": "react",
+    "baseUrl": "src",
+    "paths": {
+      "@/*":["*"]
+    },
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
