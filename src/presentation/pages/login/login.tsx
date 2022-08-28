@@ -1,4 +1,4 @@
-import { Footer, Header, Spinner } from '@/presentation/components'
+import { Footer, Header, Input, Spinner } from '@/presentation/components'
 import React from 'react'
 import Styles from './login-styles.scss'
 
@@ -8,14 +8,8 @@ const Login: React.FC = () => {
       <Header />
       <form className={Styles.form}>
         <h2>Login</h2>
-        <div className={Styles.inputWrap}>
-          <input type="email" name='email' placeholder='Digite o seu email' />
-          <span className={Styles.status}>0</span>
-        </div>
-        <div className={Styles.inputWrap}>
-          <input type="password" name='password' placeholder='Digite a sua senha' />
-          <span className={Styles.status}>0</span>
-        </div>
+        <Input type='email' name='email' placeholder='Digite o seu email' />
+        <Input type='password' name='password' placeholder='Digite a sua senha' />
         <button type='submit' className={Styles.btnSubmit}>Entrar</button>
         <span className={Styles.link}>Criar conta</span>
         <div className={Styles.errorWrap}>
