@@ -7,7 +7,7 @@ body {
 input[type='email'],
 input[type='password'] {
   border: 1px solid $primaryLight;
-  line-height: 40px;
+  line-height: 30px;
   border-radius: 4px;
   padding: 0 40px 0 8px;
 
@@ -20,7 +20,7 @@ button {
   background-color: $primary;
   color: $white;
   border-radius: 8px;
-  line-height: 60px;
+  line-height: 40px;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -36,27 +36,9 @@ button {
   height: 100vh;
   justify-content: space-between;
 
-  .header {
-    display: flex;
-    flex-direction: column;
-    border-top: 40px solid $primaryDark;
-    background-color: $primary;
-    align-items: center;
-
-    img {
-      margin-top: 40px;
-    }
-
-    h1 {
-      color: $white;
-      margin: 16px 0 40px;
-    }
-  }
-
   .form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
     width: 100%;
     max-width: 400px;
     background-color: $white;
@@ -76,6 +58,7 @@ button {
       display: flex;
       position: relative;
       align-items: center;
+      margin-top: 16px;
 
       input {
         flex-grow: 1;
@@ -86,6 +69,10 @@ button {
         right: 5px;
         font-size: 12px;
       }
+    }
+
+    .btnSubmit{
+      margin-top: 16px;
     }
 
     .link {
@@ -104,6 +91,7 @@ button {
       display: flex;
       flex-direction: column;
       align-items: center;
+
       .spinner {
         margin-top: 30px;
       }
@@ -113,9 +101,5 @@ button {
         color: $primaryLight;
       }
     }
-  }
-
-  .footer {
-    background-color: $primary;
   }
 }
