@@ -2,11 +2,11 @@
   "compilerOptions": {
     "target": "es6",
     "esModuleInterop": true,
-    "module": "commonjs",  
+    "module": "commonjs",
     "jsx": "react",
     "baseUrl": "src",
     "paths": {
-      "@/*":["*"]
+      "@/*": ["*"]
     },
     "skipLibCheck": true,
     "strict": false

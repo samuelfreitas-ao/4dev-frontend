@@ -9,7 +9,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.scss'],
+    extensions: ['.ts', '.tsx', '.js', '.scss', '.css'],
     alias: {
       '@': path.join(__dirname, 'src')
     }
@@ -17,10 +17,11 @@ module.exports = {
   module: {
     rules: [{
       test: /\.ts(x?)$/,
-      loader: 'ts-loader'
+      loader: 'ts-loader',
+      exclude: /node_modules/
     },
     {
-      test: /\.scss$/,
+      test: /\.(s?)css$/,
       use: [{
         loader: 'style-loader'
       }, {
@@ -28,6 +29,9 @@ module.exports = {
         options: {
           modules: true
         }
+      },
+      {
+        loader: 'sass-loader'
       }]
     }
     ]
