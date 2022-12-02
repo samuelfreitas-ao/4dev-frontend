@@ -2,7 +2,7 @@ import React from 'react'
 
 type DataProps = {
   username: string
-  passwrd: string
+  password: string
 }
 
 type ContextProps = {

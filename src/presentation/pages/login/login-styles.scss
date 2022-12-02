@@ -24,8 +24,13 @@
       text-transform: uppercase;
     }
 
-    .btnSubmit{
+    .btnSubmit {
       margin-top: 16px;
+
+      &:disabled {
+        background-color: $disabledBackgrouund;
+        color: $disabledColor;
+      }
     }
 
     .link {

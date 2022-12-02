@@ -16,12 +16,12 @@ const Login: React.FC = () => {
           onChange={handleInputChange} />
         <Input type='password' name='password' placeholder='Digite a sua senha'
           onChange={handleInputChange} />
-        <button type='submit' className={Styles.btnSubmit}>Entrar</button>
+        <button data-testid="submit" type='submit' className={Styles.btnSubmit} disabled={true}>Entrar</button>
         <span className={Styles.link}>Criar conta</span>
         <FormStatus />
       </form>
       <Footer />
-    </div>
+    </div >
   )
 }
 export default Login
