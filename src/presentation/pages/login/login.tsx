@@ -12,7 +12,7 @@ const Login: React.FC = () => {
       <Header />
       <form className={Styles.form} onSubmit={handleSubmit}>
         <h2>Login</h2>
-        <Input type='text' name='username' placeholder='Digite o seu email'
+        <Input type='text' name='email' placeholder='Digite o seu email'
           onChange={handleInputChange} />
         <Input type='password' name='password' placeholder='Digite a sua senha'
           onChange={handleInputChange} />

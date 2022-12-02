@@ -1,7 +1,7 @@
 import React from 'react'
 
 type DataProps = {
-  username: string
+  email: string
   password: string
 }
 
