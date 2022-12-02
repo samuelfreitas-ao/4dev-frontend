@@ -13,17 +13,14 @@ type ContextProps = {
   handleSubmit: (e: React.FormEvent) => void
 }
 
-const formData = {}
-
-export const FormContext = React.createContext(formData as ContextProps)
+export const FormContext = React.createContext({} as ContextProps)
 
 type FormContextLayerProps = {
   children: React.ReactElement
 }
 
 export const FormContextLayer = ({ children }: FormContextLayerProps): React.ReactElement => {
-  const initialData = {}
-  const [data, setData] = React.useState<DataProps>(initialData as DataProps)
+  const [data, setData] = React.useState<DataProps>({} as DataProps)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [errorMessage, setErrorMessage] = React.useState<string>('')
 
