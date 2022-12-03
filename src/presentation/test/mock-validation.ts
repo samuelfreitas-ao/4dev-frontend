@@ -1,11 +1,13 @@
 import { Validation } from '@/presentation/protocols/validation'
 
-export class ValidationSpy implements Validation {
+export class ValidationStub implements Validation {
   errorMessage: string
-  input: Object
+  field: string
+  value: string
 
-  validate(input: Object): string {
-    this.input = input
+  validate(field: string, value: string): string {
+    this.field = field
+    this.value = value
 
     return this.errorMessage
   }

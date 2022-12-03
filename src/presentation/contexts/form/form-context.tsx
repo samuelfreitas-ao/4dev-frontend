@@ -12,11 +12,13 @@ type StateProps = {
 
 type ContextProps = {
   data: DataProps
+  setIsLoading: (isLoading: boolean) => void
   isLoading: boolean
   errorMessage: string
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleSubmit: (e: React.FormEvent) => void
   state: StateProps
+  setState: (state: StateProps) => void
 }
 
 export const FormContext = React.createContext({} as ContextProps)
@@ -50,7 +52,16 @@ export const FormContextLayer = ({ children }: FormContextLayerProps): React.Rea
   }
 
   return (
-    <FormContext.Provider value={{ data, isLoading, handleInputChange, handleSubmit, errorMessage, state }}>
+    <FormContext.Provider value={{
+      data,
+      isLoading,
+      setIsLoading,
+      handleInputChange,
+      handleSubmit,
+      errorMessage,
+      setState,
+      state
+    }}>
       {children}
     </FormContext.Provider>
   )

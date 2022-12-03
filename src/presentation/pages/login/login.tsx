@@ -1,23 +1,35 @@
 import React from 'react'
 
+import Styles from './login-styles.scss'
+
 import { Footer, FormStatus, Header, Input } from '@/presentation/components'
 import { useFormContext } from '@/presentation/contexts/form/form-context'
-import Styles from './login-styles.scss'
 import { Validation } from '@/presentation/protocols/validation'
+import { Authentication } from '@/domain/usecases'
 
 type Props = {
   validation?: Validation
+  authentication?: Authentication
 }
-const Login: React.FC<Props> = ({ validation }: Props) => {
-  const { handleSubmit, data } = useFormContext()
+const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
+  const { data, state, setState, setIsLoading } = useFormContext()
 
   React.useEffect(() => {
-    validation?.validate({ email: data?.email })
-  }, [data?.email])
+    setState({
+      ...state,
+      emailError: validation?.validate('email', data.email),
+      paswordError: validation?.validate('password', data.password)
+    })
+  }, [data?.email, data?.password])
 
-  React.useEffect(() => {
-    validation?.validate({ password: data?.password })
-  }, [data?.password])
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
+    e.preventDefault()
+    setIsLoading(true)
+    await authentication.auth({
+      email: data.email,
+      password: data.password
+    })
+  }
 
   return (
     <div className={Styles.login}>
