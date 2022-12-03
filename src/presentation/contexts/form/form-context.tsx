@@ -5,12 +5,18 @@ type DataProps = {
   password: string
 }
 
+type StateProps = {
+  emailError: string
+  paswordError: string
+}
+
 type ContextProps = {
   data: DataProps
   isLoading: boolean
   errorMessage: string
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleSubmit: (e: React.FormEvent) => void
+  state: StateProps
 }
 
 export const FormContext = React.createContext({} as ContextProps)
@@ -23,21 +29,28 @@ export const FormContextLayer = ({ children }: FormContextLayerProps): React.Rea
   const [data, setData] = React.useState<DataProps>({} as DataProps)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [errorMessage, setErrorMessage] = React.useState<string>('')
+  const [state, setState] = React.useState({} as StateProps)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target
+    let message = ''
     setData({ ...data, [name]: value })
-    console.log(name, value)
+    if (!value.trim()) {
+      message = `Preencha o campo ${name}`
+      setState({ ...state, [`${name}Error`]: message })
+    } else {
+      setState({ ...state, [`${name}Error`]: '' })
+    }
+    setErrorMessage(message)
   }
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault()
     setIsLoading(true)
-    setErrorMessage('Preencha os campos')
   }
 
   return (
-    <FormContext.Provider value={{ data, isLoading, handleInputChange, handleSubmit, errorMessage }}>
+    <FormContext.Provider value={{ data, isLoading, handleInputChange, handleSubmit, errorMessage, state }}>
       {children}
     </FormContext.Provider>
   )
