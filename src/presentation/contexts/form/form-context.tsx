@@ -7,7 +7,7 @@ type DataProps = {
 
 type StateProps = {
   emailError: string
-  paswordError: string
+  passwordError: string
 }
 
 type ContextProps = {
@@ -31,18 +31,21 @@ export const FormContextLayer = ({ children }: FormContextLayerProps): React.Rea
   const [data, setData] = React.useState<DataProps>({} as DataProps)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [errorMessage, setErrorMessage] = React.useState<string>('')
-  const [state, setState] = React.useState({} as StateProps)
+  const [state, setState] = React.useState<StateProps>({
+    emailError: 'Campo obrigatório',
+    passwordError: 'Campo obrigatório'
+  })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target
-    let message = ''
+    const message = ''
     setData({ ...data, [name]: value })
-    if (!value.trim()) {
-      message = `Preencha o campo ${name}`
-      setState({ ...state, [`${name}Error`]: message })
-    } else {
-      setState({ ...state, [`${name}Error`]: '' })
-    }
+    // if (!value.trim()) {
+    //   message = `Preencha o campo ${name}`
+    //   setState({ ...state, [`${name}Error`]: message })
+    // } else {
+    //   setState({ ...state, [`${name}Error`]: '' })
+    // }
     setErrorMessage(message)
   }
 
