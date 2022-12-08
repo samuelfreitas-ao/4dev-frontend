@@ -12,8 +12,7 @@ type Props = {
   authentication?: Authentication
 }
 const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
-  const { data, state, setState, setIsLoading, isLoading } = useFormContext()
-
+  const { data, state, setState } = useFormContext()
   React.useEffect(() => {
     setState({
       ...state,
@@ -22,16 +21,24 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
     })
   }, [data?.email, data?.password])
 
-  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
 
-    if (isLoading || state.emailError || state.passwordError) return
+    try {
+      if (state.isLoading || state.emailError || state.passwordError) return
 
-    setIsLoading(true)
-    await authentication.auth({
-      email: data.email,
-      password: data.password
-    })
+      setState({ ...state, isLoading: true })
+      await authentication.auth({
+        email: data.email,
+        password: data.password
+      })
+    } catch (error) {
+      setState({
+        ...state,
+        errorMessage: error.message,
+        isLoading: false
+      })
+    }
   }
 
   return (

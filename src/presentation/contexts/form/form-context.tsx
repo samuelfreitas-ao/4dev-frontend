@@ -8,15 +8,13 @@ type DataProps = {
 type StateProps = {
   emailError: string
   passwordError: string
+  isLoading: boolean
+  errorMessage: string
 }
 
 type ContextProps = {
   data: DataProps
-  setIsLoading: (isLoading: boolean) => void
-  isLoading: boolean
-  errorMessage: string
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  handleSubmit: (e: React.FormEvent) => void
   state: StateProps
   setState: (state: StateProps) => void
 }
@@ -29,12 +27,7 @@ type FormContextLayerProps = {
 
 export const FormContextLayer = ({ children }: FormContextLayerProps): React.ReactElement => {
   const [data, setData] = React.useState<DataProps>({} as DataProps)
-  const [isLoading, setIsLoading] = React.useState<boolean>(false)
-  const [errorMessage, setErrorMessage] = React.useState<string>('')
-  const [state, setState] = React.useState<StateProps>({
-    emailError: 'Campo obrigatório',
-    passwordError: 'Campo obrigatório'
-  })
+  const [state, setState] = React.useState<StateProps>({} as StateProps)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target
@@ -46,22 +39,13 @@ export const FormContextLayer = ({ children }: FormContextLayerProps): React.Rea
     // } else {
     //   setState({ ...state, [`${name}Error`]: '' })
     // }
-    setErrorMessage(message)
-  }
-
-  const handleSubmit = (e: React.FormEvent): void => {
-    e.preventDefault()
-    setIsLoading(true)
+    setState({ ...state, errorMessage: message })
   }
 
   return (
     <FormContext.Provider value={{
       data,
-      isLoading,
-      setIsLoading,
       handleInputChange,
-      handleSubmit,
-      errorMessage,
       setState,
       state
     }}>
