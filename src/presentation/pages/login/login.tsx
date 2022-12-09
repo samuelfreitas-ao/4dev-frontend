@@ -6,13 +6,14 @@ import { Footer, FormStatus, Header, Input } from '@/presentation/components'
 import { useFormContext } from '@/presentation/contexts/form/form-context'
 import { Validation } from '@/presentation/protocols/validation'
 import { Authentication } from '@/domain/usecases'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 type Props = {
   validation?: Validation
   authentication?: Authentication
 }
 const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
+  const navigate = useNavigate()
   const { data, state, setState } = useFormContext()
   React.useEffect(() => {
     setState({
@@ -34,6 +35,7 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
         password: data.password
       })
       localStorage.setItem('accessToken', account.accessToken)
+      navigate('/', { replace: true })
     } catch (error) {
       setState({
         ...state,
