@@ -9,8 +9,8 @@ import { Authentication } from '@/domain/usecases'
 import { Link, useNavigate } from 'react-router-dom'
 
 type Props = {
-  validation?: Validation
-  authentication?: Authentication
+  validation: Validation
+  authentication: Authentication
 }
 const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
   const navigate = useNavigate()
@@ -18,8 +18,8 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
   React.useEffect(() => {
     setState({
       ...state,
-      emailError: validation?.validate('email', data.email),
-      passwordError: validation?.validate('password', data.password)
+      emailError: validation.validate('email', data.email),
+      passwordError: validation.validate('password', data.password)
     })
   }, [data?.email, data?.password])
 
@@ -52,7 +52,7 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
         <h2>Login</h2>
         <Input type='text' name='email' placeholder='Digite o seu email' />
         <Input type='password' name='password' placeholder='Digite a sua senha' />
-        <button data-testid="submit" type='submit' className={Styles.btnSubmit} disabled={!data.email || !data.password}>Entrar</button>
+        <button data-testid="submit" type='submit' className={Styles.btnSubmit} disabled={!!(state.emailError || state.passwordError)}>Entrar</button>
         <Link data-testid="signup" to="/signup" className={Styles.link}>Criar conta</Link>
         <FormStatus />
       </form>

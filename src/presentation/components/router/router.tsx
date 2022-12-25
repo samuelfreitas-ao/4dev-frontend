@@ -1,15 +1,18 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { Login, Home } from '@/presentation/pages'
-import { FormContextLayer } from '@/presentation/contexts/form/form-context'
+import { Home } from '@/presentation/pages'
 
-const Router: React.FC = () => {
+type Props = {
+  makeLogin: React.FC
+}
+
+const Router: React.FC<Props> = ({ makeLogin }: Props) => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={<FormContextLayer><Login /></FormContextLayer>} />
+        <Route path='/login' element={makeLogin(null, null)} />
       </Routes>
     </BrowserRouter>
   )
