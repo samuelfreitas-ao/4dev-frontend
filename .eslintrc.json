@@ -16,6 +16,8 @@
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
+    "@typescript-eslint/comma-dangle": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "comma-dangle": "off"

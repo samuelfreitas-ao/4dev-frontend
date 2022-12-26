@@ -6,8 +6,8 @@ import Styles from './input-styles.scss'
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 
 const Input: React.FC<InputProps> = (props: InputProps) => {
-  const { handleInputChange, state, data } = useFormContext()
-  const inputName = props.name
+  const { handleInputChange, state } = useFormContext()
+  const inputName = ({ ...props } as any).name as string
 
   // const error = state[`${inputName}Error`] || !data[inputName]
   const error = state[`${inputName}Error`]
