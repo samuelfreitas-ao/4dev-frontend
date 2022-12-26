@@ -4,7 +4,7 @@ import faker from 'faker'
 import { cleanup, fireEvent, render, RenderResult, waitFor } from '@testing-library/react'
 import 'jest-localstorage-mock'
 
-import { Login } from '@/presentation/pages'
+import Login from './login'
 import { AuthenticationSpy, ValidationStub } from '@/presentation/test'
 // import { InvalidCredentialsError } from '@/domain/errors'
 import { FormContextLayer } from '@/presentation/contexts/form/form-context'
