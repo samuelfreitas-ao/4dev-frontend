@@ -12,7 +12,7 @@ const Router: React.FC<Props> = ({ makeLogin }: Props) => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={makeLogin(null, null)} />
+        <Route path='/login' element={makeLogin(null)} />
       </Routes>
     </BrowserRouter>
   )
