@@ -588,7 +588,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/dist/index.js\");\nconst Router = ({ makeLogin }) => {\n    return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,\n        react_1.default.createElement(react_router_dom_1.Routes, null,\n            react_1.default.createElement(react_router_dom_1.Route, { path: '/login', element: makeLogin(null) }))));\n};\nexports[\"default\"] = Router;\n\n\n//# sourceURL=webpack://4dev/./src/presentation/components/router/router.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/dist/index.js\");\nconst Router = ({ makeLogin }) => {\n    return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,\n        react_1.default.createElement(react_router_dom_1.Routes, null,\n            react_1.default.createElement(react_router_dom_1.Route, { path: '/', element: makeLogin(null) }),\n            react_1.default.createElement(react_router_dom_1.Route, { path: '/login', element: makeLogin(null) }))));\n};\nexports[\"default\"] = Router;\n\n\n//# sourceURL=webpack://4dev/./src/presentation/components/router/router.tsx?");
 
 /***/ }),
 
@@ -1024,7 +1024,7 @@ eval("// Axios v1.2.2 Copyright (c) 2022 Matt Zabriskie and contributors\n\n\nfu
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("87d35dfea4442d2534da")
+/******/ 		__webpack_require__.h = () => ("5e49547857941037f0e5")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

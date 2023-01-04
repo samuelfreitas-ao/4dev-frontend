@@ -9,6 +9,7 @@ const Router: React.FC<Props> = ({ makeLogin }: Props) => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={makeLogin(null)} />
         <Route path='/login' element={makeLogin(null)} />
       </Routes>
     </BrowserRouter>
