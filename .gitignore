@@ -3,4 +3,4 @@ yarn.lock
 package-lock.json
 *.log
 coverage
-public/js
+# public/js
